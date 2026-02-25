@@ -130,6 +130,11 @@ def parse_arguments() -> argparse.Namespace:
         default=None,
         help='tokenizer path; defaults to jax_model_dir if left unspecified')
     parser.add_argument("--load_model_on_cpu", action="store_true")
+    parser.add_argument(
+        "--disable-vision-encoding",
+        action="store_true",
+        help="Disable vision encoding (SigLIP). Use text-only model."
+    )
     args = parser.parse_args()
 
     if args.use_weight_only:
